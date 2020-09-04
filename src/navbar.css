@@ -1,0 +1,25 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px #DBDBDB solid;
+}
+.navbar ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10vw;
+    padding-right: 8vw;
+    background-color: #FFFFFF;
+    height: 8vh;
+    align-items: center;
+}
+.navbar ul li
+{
+    padding-right: 1vw;
+}
+.navbar-searchbar {
+    margin: 0 auto;
+}

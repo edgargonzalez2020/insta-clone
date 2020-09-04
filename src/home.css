@@ -1,0 +1,68 @@
+.timeline {
+    width: 100%;
+    height: 100%;
+    background-color: #FAFAFA;
+    padding-top: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 8vh;
+}
+.post-card {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-height: 90%;
+    align-items: center;
+    border: 1px #DBDBDB solid;
+    margin-bottom: 2em;
+}
+.post-card img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.post-card-actions-container
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.post-card-actions {
+    padding-right:10px;
+}
+p
+{
+    margin: 0;
+    padding: 5px 0;
+}
+form {
+    position: relative;
+    display: flex;
+    margin-top: auto;
+}
+.post-add-comment {
+    margin-top: auto;
+    justify-content:center;
+    flex-direction: row;
+    border-top: 1px #EFEFEF solid!important;
+    border: none;
+    width: 100%;
+    height: 5vh;
+    padding: 2em 0 2em 1em;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+.post-add-comment:focus {
+    outline: none;
+}
+.comment-submit {
+    display: inline-block;
+    background: #FFFFFF;
+    padding-right: 1em;
+    border-top: 1px #EFEFEF solid!important;
+    border: none;
+}
