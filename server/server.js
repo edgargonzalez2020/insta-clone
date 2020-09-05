@@ -23,15 +23,16 @@ app.get("/image/:uid/:name",(req,res)=>{
 app.get("/assets/:name",(req,res)=>{
     res.sendFile(`/assets/${req.params.name}`,{root: "./public/"});
 });
-app.post('/upload/:uid', (req, res)=> {
+app.post('/upload/', (req, res)=> {
+    const {useruid, caption, userName} = req.body;
     if (!req.files) {
         return res.status(500).send({ msg: "file is not found" })
     }
     const myFile = req.files.file;
-    mkdirp(`${__dirname}/public/images/${req.params.uid}/`, function(err) {
+    mkdirp(`${__dirname}/public/images/${useruid}/`, function(err) {
         // path exists unless there was an error
     });
-    myFile.mv(`${__dirname}/public/images/${req.params.uid}/${myFile.name}`, (err) => {
+    myFile.mv(`${__dirname}/public/images/${useruid}/${myFile.name}`, (err) => {
         if(err)
         {
             console.log(err);
@@ -40,7 +41,7 @@ app.post('/upload/:uid', (req, res)=> {
         MongoClient.connectToServer(function(err, client) {
             if(err) console.log(err);
             const db = MongoClient.getDb();
-            db.collection('post').insert({useruid: req.params.uid, uuid: "2", caption: "new caption", image: myFile.name, comments:[], userName: "yo_girl" });
+            db.collection('post').insert({useruid: useruid, caption: caption, userName: userName, image: `${myFile.name}`, comments: []});
         });
         return res.send({name: myFile.name, path: `/image/${myFile.name}`});
      });
